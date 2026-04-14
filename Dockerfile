@@ -2,12 +2,8 @@ FROM eclipse-temurin:25
 
 WORKDIR /server
 
-VOLUME ["/server/data"]
-
-COPY . /server
-
-RUN echo "eula=true" > /server/eula.txt
+COPY server.jar /serverfile/server.jar
 
 EXPOSE 25565
 
-ENTRYPOINT ["java", "-Xmx4G", "-Xms2G", "-jar", "server.jar", "nogui"]
+ENTRYPOINT ["java", "-Xmx4G", "-Xms2G", "-jar", "/serverfile/server.jar", "nogui"]
