@@ -1,2 +1,4 @@
 server.jar
 /data
+.env
+.DS_Store
