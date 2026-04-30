@@ -1,9 +1,11 @@
 FROM eclipse-temurin:25
 
-WORKDIR /server
+WORKDIR /app
+COPY . .
+RUN chmod +x entrypoint.sh
 
-COPY server.jar /serverfile/server.jar
+WORKDIR /server
 
 EXPOSE 25565
 
-ENTRYPOINT ["java", "-Xmx4G", "-Xms2G", "-jar", "/serverfile/server.jar", "nogui"]
+ENTRYPOINT ["/app/entrypoint.sh"]
